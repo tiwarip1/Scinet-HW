@@ -33,7 +33,7 @@ int main() {
 	myfile << oss.str();
 
 	myfile.close();
-	system("pause");
+
 	return 0;
 
 }
