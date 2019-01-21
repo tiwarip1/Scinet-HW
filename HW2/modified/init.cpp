@@ -4,6 +4,8 @@
 #include <vector>
 using std::vector;
 
+//Creates the ants on a table by filling in the array number_of_ants, then returns
+//that array
 int *init(int length, int total_ants, int* number_of_ants) {
 
 	// place the ants evenly on the table

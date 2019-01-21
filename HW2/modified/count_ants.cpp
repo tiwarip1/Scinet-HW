@@ -4,7 +4,9 @@
 #include <vector>
 using std::vector;
 
-
+//This function takes a set of arguments and goes throught he number_of_ants
+//to find the total number of ants, the min and max on a single sector and outputs
+//them to a vector of ints and that is what is returned
 vector<int> count_ants(int length, int total_ants, int* number_of_ants,bool output) {
 	// count ants and determine minimum and maximum number on a square
 	int nmin = total_ants;
@@ -24,7 +26,7 @@ vector<int> count_ants(int length, int total_ants, int* number_of_ants,bool outp
 	}
 
 	if (output){
-		// report
+		// report if the function is prompted to print the output
 		std::cout << 0 << " " << total_ants << " " << nmin << " " << nmax << std::endl;
 	}
 

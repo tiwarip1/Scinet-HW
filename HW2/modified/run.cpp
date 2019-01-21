@@ -7,6 +7,9 @@ using std::vector;
 #include "count_ants.h"
 #include "Randpartition.h"
 
+//When running, the ants are allowed to move on the table in the manner allowed
+//by jmoves and imoves in a random manner using Randpartition. This is for a 
+//single step and must be run multiple times to have a dynamic system
 int* run_once(int length, int* new_number_of_ants, int* number_of_ants, int nmoves,size_t seed, int* partition,const int* jmoves, const int* imoves, int total_ants, int nmin, int nmax, int t) {
 
 	// ants move to a new an auxiliary new 'table', empty this one first
