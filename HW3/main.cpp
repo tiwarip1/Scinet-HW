@@ -81,15 +81,17 @@ int main()
 		nmin_l.push_back(nmin);
 		nmax_l.push_back(nmax);
 		total_ants_l.push_back(total_ants);
+		
+		total_t = t;
 
 	}
 	
 	NcFile dataFile("output.nc",NcFile::replace);
 	
-	NcDim tDim = dataFile.addDim("t+1",t+1);
-	NcDim nminDim = dataFile.addDim("nmin",nmin);
-	NcDim nmaxDim = dataFile.addDim("nmax",nmax);
-	NcDim totalDim = dataFile.addDim("total_ants",total_ants);
+	NcDim tDim = dataFile.addDim("t+1",total_t);
+	NcDim nminDim = dataFile.addDim("nmin",total_t);
+	NcDim nmaxDim = dataFile.addDim("nmax",total_t);
+	NcDim totalDim = dataFile.addDim("total_ants",total_t);
 	std::vector<NcDim> dims(4);
 	
 	dims[0] = tDim;
