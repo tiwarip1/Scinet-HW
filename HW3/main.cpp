@@ -48,15 +48,15 @@ int main()
 	nmin = counted_variables[0];
 	nmax = counted_variables[1];
 	total_ants = counted_variables[2];
-
-
-	rarray<int,4> everything;
+	
+	
 	
 	vector<int> tp1;
 	vector<int> nmin_l;
 	vector<int> nmax_l;
 	vector<int> total_ants_l;
 	
+	int total_t=0;
 
 	// run time steps
 	for (int t = 0; t < time_steps; t++) {
@@ -72,11 +72,6 @@ int main()
 		nmax = counted_variables[1];
 		total_ants = counted_variables[2];
 		
-		everything[t][0]=t+1;
-		everything[t][1]=nmin;
-		everything[t][2]=nmax;
-		everything[t][3]=total_ants;
-		
 		tp1.push_back(t+1);
 		nmin_l.push_back(nmin);
 		nmax_l.push_back(nmax);
@@ -84,6 +79,26 @@ int main()
 		
 		total_t = t;
 
+	}
+	
+	int everything[4][total_t];
+	
+	for (int i=0;i<4,i++){
+		for (int j=0;j<total_t;j++{
+			
+			if(i==0){
+				everything[i][j]=tp1[j];
+			}
+			else if(i==1){
+				everything[i][j]=nmin_l[j];
+			}
+			else if(i==2){
+				everything[i][j]=nmax_l[j];
+			}
+			else if(i==3){
+				everything[i][j]=total_ants_l[j];
+			}
+		}
 	}
 	
 	NcFile dataFile("output.nc",NcFile::replace);
@@ -101,7 +116,7 @@ int main()
 	
 	NcVar data = dataFile.addVar("data",ncInt,dims);
 	
-	data.putVar(everything);
+	data.putVar(&everything);
 	
 	return 0;
 }
