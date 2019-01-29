@@ -6,7 +6,8 @@
 #include <algorithm>
 #include <vector>
 using std::vector;
+#include <rarray>
 
-int *init(int , int , int* );
+rarray<int,2> init(int , int , rarray<int,2> );
 
 #endif

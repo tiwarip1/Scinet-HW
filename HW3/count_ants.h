@@ -6,7 +6,8 @@
 #include <algorithm>
 #include <vector>
 using std::vector;
+#include <rarray>
 
-vector<int> count_ants(int, int, int*,bool);
+vector<int> count_ants(int, int, rarray<int,2>,bool);
 
 #endif

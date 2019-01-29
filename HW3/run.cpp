@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <vector>
 using std::vector;
+#include <rarray>
 
 #include "count_ants.h"
 #include "Randpartition.h"
@@ -10,13 +11,13 @@ using std::vector;
 //When running, the ants are allowed to move on the table in the manner allowed
 //by jmoves and imoves in a random manner using Randpartition. This is for a 
 //single step and must be run multiple times to have a dynamic system
-int* run_once(int length, int* new_number_of_ants, int* number_of_ants, int nmoves,size_t seed, int* partition,const int* jmoves, const int* imoves, int total_ants, int nmin, int nmax, int t) {
+rarray<int,2> run_once(int length, rarray<int,2> new_number_of_ants, rarray<int,2> number_of_ants, int nmoves,size_t seed, int* partition,const int* jmoves, const int* imoves, int total_ants, int nmin, int nmax, int t) {
 
 	// ants move to a new an auxiliary new 'table', empty this one first
 	for (int i = 0; i < length; i++) {
 		for (int j = 0; j < length; j++) {
 			int n = i * length + j; // linear index
-			new_number_of_ants[n] = 0;
+			new_number_of_ants[i][j] = 0;
 		}
 	}
 
@@ -24,9 +25,9 @@ int* run_once(int length, int* new_number_of_ants, int* number_of_ants, int nmov
 	for (int i = 0; i < length; i++) {
 		for (int j = 0; j < length; j++) {
 			int n = i * length + j; // linear index
-			if (number_of_ants[n] > 0) {
+			if (number_of_ants[i][j] > 0) {
 				// pick how many ants go in each of the 9 moves
-				rand_partition(number_of_ants[n], nmoves, partition, seed);
+				rand_partition(number_of_ants[i][j], nmoves, partition, seed);
 				// push ants in their respective moves 
 				for (int m = 0; m < nmoves; m++) {
 					int i2 = i + imoves[m];
@@ -34,7 +35,7 @@ int* run_once(int length, int* new_number_of_ants, int* number_of_ants, int nmov
 					// put only on new table if not falling off table
 					if (i2 >= 0 and i2 < length and j2 >= 0 and j2 < length) {
 						int n = i2 * length + j2; // linear index
-						new_number_of_ants[n] += partition[m];
+						new_number_of_ants[i2][j2] += partition[m];
 					}
 				}
 			}
@@ -45,7 +46,7 @@ int* run_once(int length, int* new_number_of_ants, int* number_of_ants, int nmov
 	for (int i = 0; i < length; i++) {
 		for (int j = 0; j < length; j++) {
 			int n = i * length + j; // linear index
-			number_of_ants[n] = new_number_of_ants[n];
+			number_of_ants[i][j] = new_number_of_ants[i][j];
 		}
 	}
 

@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <vector>
 using std::vector;
+#include <rarray>
 
 #include "init.h"
 #include "Randpartition.h"
@@ -26,8 +27,10 @@ int main()
 	size_t seed = 11;     // seed for random number generation
 
 						  // work arrays
-	int *number_of_ants = new int[length*length];     // distribution of ants on the table over squares.
-	int *new_number_of_ants = new int[length*length]; // auxiliary array used in time step to hold the new distribution of ants
+	rarray<int,2> number_of_ants(length,length);
+	rarray<int,2> new_number_of_ants(length,length);
+	//int *number_of_ants = new int[length*length];     // distribution of ants on the table over squares.
+	//int *new_number_of_ants = new int[length*length]; // auxiliary array used in time step to hold the new distribution of ants
 	int *partition = new int[nmoves];                 // used to determine how many ants move in which direction in a time step
 	int nmin = total_ants;                 // will hold the minimum number of ants on any square
 	int nmax = 0;                          // will hold the maximum number of ants on any square                        

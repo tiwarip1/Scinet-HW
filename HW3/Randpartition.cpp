@@ -1,6 +1,7 @@
 #include <iostream>
 #include <random>
 #include <algorithm>
+#include <rarray>
 
 // Implementation of the function to randomly divide a number 'total'
 // into a set of 'numdivision' numbers that add up to 'total'. Uses
