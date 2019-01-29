@@ -5,6 +5,8 @@
 #include <vector>
 using std::vector;
 #include <rarray>
+#include <netcdf>
+using namespace netCDF;
 
 #include "init.h"
 #include "Randpartition.h"
@@ -47,6 +49,15 @@ int main()
 	nmax = counted_variables[1];
 	total_ants = counted_variables[2];
 
+
+	rarray<int,4> everything;
+	
+	vector<int> tp1;
+	vector<int> nmin_l;
+	vector<int> nmax_l;
+	vector<int> total_ants_l;
+	
+
 	// run time steps
 	for (int t = 0; t < time_steps; t++) {
 		
@@ -60,8 +71,36 @@ int main()
 		nmin = counted_variables[0];
 		nmax = counted_variables[1];
 		total_ants = counted_variables[2];
+		
+		everything[t][0]=t+1;
+		everything[t][1]=nmin;
+		everything[t][2]=nmax;
+		everything[t][3]=total_ants;
+		
+		tp1.push_back(t+1);
+		nmin_l.push_back(nmin);
+		nmax_l.push_back(nmax);
+		total_ants_l.push_back(total_ants);
 
 	}
+	
+	NcFile dataFile("output.nc",NcFile::replace);
+	
+	NcDim tDim = dataFile.addDim("t+1",t+1);
+	NcDim nminDim = dataFile.addDim("nmin",nmin);
+	NcDim nmaxDim = dataFile.addDim("nmax",nmax);
+	NcDim totalDim = dataFile.addDim("total_ants",total_ants);
+	std::vector<NcDim> dims(4);
+	
+	dims[0] = tDim;
+	dims[1] = nminDim;
+	dims[2] = nmaxDim;
+	dims[3] = totalDim;
+	
+	NcVar data = dataFile.addVar("data",ncInt,dims);
+	
+	data.putVar(everything);
+	
 	return 0;
 }
 
