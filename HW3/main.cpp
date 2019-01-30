@@ -7,15 +7,16 @@ using std::vector;
 #include <rarray>
 #include <netcdf>
 using namespace netCDF;
-
+using namespace netCDF::exceptions;
 #include "init.h"
 #include "Randpartition.h"
 #include "count_ants.h"
 #include "run.h"
-
+using namespace std;
 // Main driver
 int main()
 {
+  static const int NC_ERR = 2;
 	//Moved global variables to being within the main function
 	const int nmoves = 9; // There are (3 in the i direction)x(3 in the j direction)=9 possible moves
 
@@ -83,8 +84,8 @@ int main()
 	
 	int everything[4][total_t];
 	
-	for (int i=0;i<4,i++){
-		for (int j=0;j<total_t;j++{
+	for (int i=0;i<4;i++){
+	  for (int j=0;j<total_t;j++){
 			
 			if(i==0){
 				everything[i][j]=tp1[j];
@@ -100,7 +101,7 @@ int main()
 			}
 		}
 	}
-	
+
 	NcFile dataFile("output.nc",NcFile::replace);
 	
 	NcDim tDim = dataFile.addDim("t+1",total_t);
@@ -115,7 +116,7 @@ int main()
 	dims[3] = totalDim;
 	
 	NcVar data = dataFile.addVar("data",ncInt,dims);
-	
+
 	data.putVar(&everything);
 	
 	return 0;

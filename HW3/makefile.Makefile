@@ -3,7 +3,7 @@ CXXFLAGS=-std=c++11
 
 all : init count_ants Randpartition run main
 
-	${CXX} ${CXXFLAGS} -o antsonatable main.o init.o Randpartition.o count_ants.o run.o;\
+	${CXX} ${CXXFLAGS} -o antsonatable main.o init.o Randpartition.o count_ants.o run.o -lnetcdf_c++4;\
 	./antsonatable>output.dat;\
 	tar -zcvf antsonatable.tar.gz .
 
