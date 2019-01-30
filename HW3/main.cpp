@@ -7,7 +7,7 @@ using std::vector;
 #include <rarray>
 #include <netcdf>
 using namespace netCDF;
-using namespace netCDF::exceptions;
+
 #include "init.h"
 #include "Randpartition.h"
 #include "count_ants.h"
@@ -16,7 +16,7 @@ using namespace std;
 // Main driver
 int main()
 {
-  static const int NC_ERR = 2;
+
 	//Moved global variables to being within the main function
 	const int nmoves = 9; // There are (3 in the i direction)x(3 in the j direction)=9 possible moves
 
@@ -29,11 +29,9 @@ int main()
 	int    total_ants = 40000;  // initial number of ants
 	size_t seed = 11;     // seed for random number generation
 
-						  // work arrays
+	//Changed the int*'s into rarrays with two columns
 	rarray<int,2> number_of_ants(length,length);
 	rarray<int,2> new_number_of_ants(length,length);
-	//int *number_of_ants = new int[length*length];     // distribution of ants on the table over squares.
-	//int *new_number_of_ants = new int[length*length]; // auxiliary array used in time step to hold the new distribution of ants
 	int *partition = new int[nmoves];                 // used to determine how many ants move in which direction in a time step
 	int nmin = total_ants;                 // will hold the minimum number of ants on any square
 	int nmax = 0;                          // will hold the maximum number of ants on any square                        
@@ -50,8 +48,7 @@ int main()
 	nmax = counted_variables[1];
 	total_ants = counted_variables[2];
 	
-	
-	
+	//Added vectors to hold the information needed int he netCDF file at the end
 	vector<int> tp1;
 	vector<int> nmin_l;
 	vector<int> nmax_l;
@@ -72,7 +69,7 @@ int main()
 		nmin = counted_variables[0];
 		nmax = counted_variables[1];
 		total_ants = counted_variables[2];
-		
+		//append to vectors to have these values put into the netCDF file later
 		tp1.push_back(t+1);
 		nmin_l.push_back(nmin);
 		nmax_l.push_back(nmax);
@@ -81,9 +78,11 @@ int main()
 		total_t = t;
 
 	}
-	
+	//This is the variable that will be collects all the data and puts
+	//it into the netCDF file
 	int everything[4][total_t];
-	
+	//Loops over every part of everything and puts a value in each slot
+	//corresponding to the column of that specific varaible
 	for (int i=0;i<4;i++){
 	  for (int j=0;j<total_t;j++){
 			
@@ -101,20 +100,20 @@ int main()
 			}
 		}
 	}
-
+	//Create netCDF file
 	NcFile dataFile("output.nc",NcFile::replace);
-	
+	//Define column names
 	NcDim tDim = dataFile.addDim("t+1",total_t);
 	NcDim nminDim = dataFile.addDim("nmin",total_t);
 	NcDim nmaxDim = dataFile.addDim("nmax",total_t);
 	NcDim totalDim = dataFile.addDim("total_ants",total_t);
 	std::vector<NcDim> dims(4);
-	
+	//Put these column names into a vector
 	dims[0] = tDim;
 	dims[1] = nminDim;
 	dims[2] = nmaxDim;
 	dims[3] = totalDim;
-	
+	//And put all that information into a netCDF file at the very end
 	NcVar data = dataFile.addVar("data",ncInt,dims);
 
 	data.putVar(&everything);

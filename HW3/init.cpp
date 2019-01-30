@@ -5,11 +5,11 @@
 using std::vector;
 #include <rarray>
 
-//Creates the ants on a table by filling in the array number_of_ants, then returns
-//that array
+//Creates the ants on a table by filling in the rarray number_of_ants, then returns
+//that rarray
 rarray<int,2> init(int length, int total_ants, rarray<int,2> number_of_ants) {
 
-	// place the ants evenly on the table
+	// place the ants evenly on the tabley
 	for (int i = 0; i < length; i++) {
 		for (int j = 0; j < length; j++) {
 			int n = i * length + j; // linear index
