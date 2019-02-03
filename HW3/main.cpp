@@ -53,10 +53,10 @@ int main()
 	//Defines 1D arrays to store information, afterwhich it will be put
 	//into the netcdf file, they have a size of 1000 because we won't 
 	//need anything more since it updates every 1000 time steps
-	rarray<float,1> tp1_array(1000));
-	rarray<float,1> nmin_array(1000));
-	rarray<float,1> nmax_array(1000));
-	rarray<float,1> total_ants_array(1000));
+	rarray<float,1> tp1_array(time_steps);
+	rarray<float,1> nmin_array(time_steps);
+	rarray<float,1> nmax_array(time_steps);
+	rarray<float,1> total_ants_array(time_steps);
 	
 	//just a counter variable
 	int total_t=0;
@@ -87,10 +87,10 @@ int main()
 			writing(total_t,tp1_array,nmin_array,nmax_array,total_ants_array);
 			
 			//Redefine arrays so they don't overwrite
-			rarray<float,1> tp1_array(1000);
-			rarray<float,1> nmin_array(1000));
-			rarray<float,1> nmax_array(1000));
-			rarray<float,1> total_ants_array(1000));
+			rarray<float,1> tp1_array(time_steps);
+			rarray<float,1> nmin_array(time_steps);
+			rarray<float,1> nmax_array(time_steps);
+			rarray<float,1> total_ants_array(time_steps);
 		}
 
 	}
