@@ -1,10 +1,11 @@
 CXX = g++ 
 CXXFLAGS=-std=c++11
 
-all : init count_ants Randpartition run main
+all : init count_ants Randpartition run writefile main
 
-	${CXX} ${CXXFLAGS} -o antsonatable main.o init.o Randpartition.o count_ants.o run.o -lnetcdf_c++4;\
+	${CXX} ${CXXFLAGS} -o antsonatable main.o init.o Randpartition.o count_ants.o run.o writefile.o -lnetcdf_c++4;\
 	./antsonatable>output.dat;\
+	clean;\
 	tar -zcvf antsonatable.tar.gz .
 
 main : main.cpp
@@ -26,3 +27,11 @@ Randpartition : Randpartition.cpp
 run : run.cpp Randpartition.h count_ants.h
 
 	${CXX} ${CXXFLAGS} -c -o run.o run.cpp
+
+writefile : writefile.cpp
+
+	${CXX} ${CXXFLAGS} -c -o writefile.o writefile.cpp
+
+clean :
+
+	rm *.o

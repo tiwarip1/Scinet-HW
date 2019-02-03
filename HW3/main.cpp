@@ -12,6 +12,8 @@ using namespace netCDF;
 #include "Randpartition.h"
 #include "count_ants.h"
 #include "run.h"
+#include "writefile.h"
+
 using namespace std;
 // Main driver
 int main()
@@ -48,11 +50,11 @@ int main()
 	nmax = counted_variables[1];
 	total_ants = counted_variables[2];
 	
-	//Added vectors to hold the information needed int he netCDF file at the end
-	vector<int> tp1;
-	vector<int> nmin_l;
-	vector<int> nmax_l;
-	vector<int> total_ants_l;
+	
+	rarray<float,1> tp1_array(time_steps);
+	rarray<float,1> nmin_array(time_steps);
+	rarray<float,1> nmax_array(time_steps);
+	rarray<float,1> total_ants_array(time_steps);
 	
 	int total_t=0;
 
@@ -69,54 +71,22 @@ int main()
 		nmin = counted_variables[0];
 		nmax = counted_variables[1];
 		total_ants = counted_variables[2];
-		//append to vectors to have these values put into the netCDF file later
-		tp1.push_back(t+1);
-		nmin_l.push_back(nmin);
-		nmax_l.push_back(nmax);
-		total_ants_l.push_back(total_ants);
+		
+		tp1_array[t]=t+1;
+		nmin_array[t]=nmin;
+		nmax_array[t]=nmax;
+		total_ants_array[t]=total_ants;
 		
 		total_t = t;
-
-	}
-	//This is the variable that will be collects all the data and puts
-	//it into the netCDF file
-	int everything[4][total_t];
-	//Loops over every part of everything and puts a value in each slot
-	//corresponding to the column of that specific varaible
-	for (int i=0;i<4;i++){
-	  for (int j=0;j<total_t;j++){
-			
-			if(i==0){
-				everything[i][j]=tp1[j];
-			}
-			else if(i==1){
-				everything[i][j]=nmin_l[j];
-			}
-			else if(i==2){
-				everything[i][j]=nmax_l[j];
-			}
-			else if(i==3){
-				everything[i][j]=total_ants_l[j];
-			}
+		
+		if (total_t%1000==0){
+			writefile(total_t,t_values,nmin_values,nmax_values,total_values);
 		}
-	}
-	//Create netCDF file
-	NcFile dataFile("output.nc",NcFile::replace);
-	//Define column names
-	NcDim tDim = dataFile.addDim("t+1",total_t);
-	NcDim nminDim = dataFile.addDim("nmin",total_t);
-	NcDim nmaxDim = dataFile.addDim("nmax",total_t);
-	NcDim totalDim = dataFile.addDim("total_ants",total_t);
-	std::vector<NcDim> dims(4);
-	//Put these column names into a vector
-	dims[0] = tDim;
-	dims[1] = nminDim;
-	dims[2] = nmaxDim;
-	dims[3] = totalDim;
-	//And put all that information into a netCDF file at the very end
-	NcVar data = dataFile.addVar("data",ncInt,dims);
 
-	data.putVar(&everything);
+	}
+	
+	//Deallocating memory
+	delete parition;
 	
 	return 0;
 }
