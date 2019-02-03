@@ -5,7 +5,7 @@ all : init count_ants Randpartition run writefile main
 
 	${CXX} ${CXXFLAGS} -o antsonatable main.o init.o Randpartition.o count_ants.o run.o writefile.o -lnetcdf_c++4;\
 	./antsonatable>output.dat;\
-	clean;\
+	rm *.o;\
 	tar -zcvf antsonatable.tar.gz .
 
 main : main.cpp

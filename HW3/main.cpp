@@ -80,13 +80,13 @@ int main()
 		total_t = t;
 		
 		if (total_t%1000==0){
-			writefile(total_t,t_values,nmin_values,nmax_values,total_values);
+			writing(total_t,tp1_array,nmin_array,nmax_array,total_ants_array);
 		}
 
 	}
 	
 	//Deallocating memory
-	delete parition;
+	delete partition;
 	
 	return 0;
 }

@@ -1,5 +1,5 @@
-#ifndef _RUN_
-#define _RUN_
+#ifndef _WRITEFILE_
+#define _WRITEFILE_
 
 #include <iostream>
 #include <random>

@@ -23,7 +23,7 @@ rarray<float,1> nmax_values, rarray<float,1> total_values){
 	NcVar ts = dataFile.addVar("t",ncFloat,tDim);
 	NcVar nmins = dataFile.addVar("nmin",ncFloat,nminDim);
 	NcVar nmaxs = dataFile.addVar("nmax",ncFloat,nmaxDim);
-	NcVar totals = dataFile.addVar("total_ants",ncFloat,total_t);
+	NcVar totals = dataFile.addVar("total_ants",ncFloat,totalDim);
 	
 	std::vector<NcDim> dims(4);
 	
