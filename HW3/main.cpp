@@ -50,12 +50,15 @@ int main()
 	nmax = counted_variables[1];
 	total_ants = counted_variables[2];
 	
+	//Defines 1D arrays to store information, afterwhich it will be put
+	//into the netcdf file, they have a size of 1000 because we won't 
+	//need anything more since it updates every 1000 time steps
+	rarray<float,1> tp1_array(1000));
+	rarray<float,1> nmin_array(1000));
+	rarray<float,1> nmax_array(1000));
+	rarray<float,1> total_ants_array(1000));
 	
-	rarray<float,1> tp1_array(time_steps);
-	rarray<float,1> nmin_array(time_steps);
-	rarray<float,1> nmax_array(time_steps);
-	rarray<float,1> total_ants_array(time_steps);
-	
+	//just a counter variable
 	int total_t=0;
 
 	// run time steps
@@ -72,6 +75,7 @@ int main()
 		nmax = counted_variables[1];
 		total_ants = counted_variables[2];
 		
+		//puts the variables into arrays
 		tp1_array[t]=t+1;
 		nmin_array[t]=nmin;
 		nmax_array[t]=nmax;
@@ -81,11 +85,18 @@ int main()
 		
 		if (total_t%1000==0){
 			writing(total_t,tp1_array,nmin_array,nmax_array,total_ants_array);
+			
+			//Redefine arrays so they don't overwrite
+			rarray<float,1> tp1_array(1000);
+			rarray<float,1> nmin_array(1000));
+			rarray<float,1> nmax_array(1000));
+			rarray<float,1> total_ants_array(1000));
 		}
 
 	}
 	
-	//Deallocating memory
+	//Deallocating memory because I couldn't figure out how to use the
+	//variable without the static array
 	delete partition;
 	
 	return 0;

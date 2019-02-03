@@ -7,6 +7,8 @@ using std::vector;
 #include <netcdf>
 using namespace netCDF;
 
+//This file will write the information every 1000 time steps and append
+//it to a existing netcdf file
 void writing(int total_t,rarray<float,1> t_values, rarray<float,1> nmin_values,
 rarray<float,1> nmax_values, rarray<float,1> total_values){
 	
@@ -25,6 +27,7 @@ rarray<float,1> nmax_values, rarray<float,1> total_values){
 	NcVar nmaxs = dataFile.addVar("nmax",ncFloat,nmaxDim);
 	NcVar totals = dataFile.addVar("total_ants",ncFloat,totalDim);
 	
+	//Define a vector for the column names
 	std::vector<NcDim> dims(4);
 	
 	//Put these column names into a vector
@@ -33,6 +36,8 @@ rarray<float,1> nmax_values, rarray<float,1> total_values){
 	dims[2] = nmaxDim;
 	dims[3] = totalDim;
 
+	//This is the function that actually puts the information in to the
+	//necessary columns
 	ts.putVar(t_values.data());
 	nmins.putVar(nmin_values.data());
 	nmaxs.putVar(nmax_values.data());
