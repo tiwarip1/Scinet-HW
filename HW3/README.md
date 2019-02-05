@@ -1,5 +1,5 @@
-This directory contains a .tar folder which contains all the necessary files to be run using "g++ -std=c++11". To run this file you can use the makefile located in the .tar folder using the command "make -f makefile.Makefile", which will link all the necessary object files and run the executable itself. The output will be put into a .dat file.
+In this homework, we had to use the ants on the table code from the last homework. We had to add a module that appends values to a netCDF file every 1000 timesteps.
 
-The folder simulates a number of ants that have been divided into square sections of a table and have been allowed to evovle by allowing motion. These ants can fall off of the table and so their numbers reduce in time. Comments are given in the .cpp files to explain their purposes, but the main.cpp file consolidates the functionalities of each file to simulate the ants on a table.
+The new module that does this is the writefile.cpp file. The makefile needed to be modified to include a clean command and account for the new module. Comments are present in main.cpp and writefile.cpp
 
-We used rarrays for this version of the program instead of arrays as this structure is a little easier to deal with. While everything above was done the same with rarrays, the makefile needed to be changed to include the netcdf library. This was run on the teach cluster and outputs both a .dat file and a .nc file depending on the needs of the user.
+We also had to replace the 2d dynamically allocated arrays with 2d rarrays aswell, which required small modifications of the .h and .cpp files to work with the new type.
