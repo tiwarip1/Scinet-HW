@@ -5,6 +5,7 @@ CXXFLAGS=-std=c++11 -g -O2 -march=native -ftree-vectorize -Wall
 LDFLAGS=-g
 LDLIBS=
 
+
 all: antsontable-orig antsontable
 
 clean: clean-orig clean-new
@@ -67,3 +68,14 @@ help:
 	@echo " 'make integratedtest' to compare outputs of antsontable and antsontable-orig."
 	@echo " 'make clean'          to remove all object files (triggers a full recompile on next 'make')"
 	@echo " 'make distclean'      to remove all object files, executables and test outputs"
+
+test: testsuite
+
+testsuite: initialization.o report.o init_test.o all_test.o
+	${CXX} ${LDFLAGS} -o testsuite initialization.o report.o init_test.o all_test.o ${LDLIBS}
+
+all_test.o: all_test.cpp
+	${CXX} ${CXXFLAGS} -c -o $@ $^
+
+init_test.o: init_test.cpp init_test.h
+	${CXX} ${CXXFLAGS} -c -o $@ $<
