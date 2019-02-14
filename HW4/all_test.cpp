@@ -1,4 +1,4 @@
-//This file is make to culminate all the tests that we want to do on
+B//This file is make to culminate all the tests that we want to do on
 //the separate files
 
 #include <iostream>
@@ -23,7 +23,7 @@ int main(){
 	time_testing();
 	
 }
-
+//Function that tests the outputs of the initialization function
 void init_testing(){
 	cout<<"Testing initialization of the table"<<endl;
 	
@@ -43,15 +43,18 @@ void init_testing(){
 	
 	cout<<"Everything looks good"<<endl;
 }
-
+//Testing the output of the randomization function
 void rand_testing(){
 	
 	cout<<"Testing the randomization function"<<endl;
-	
+	//Given some random values and empty arrays
 	int total=100;
 	int regions=10;
 	rarray<int,1> possible_numbers (regions);
 	size_t seed = 1;
+
+	//The function loops over 10 different seeds and puts that into the randomization function
+	//which then checks to make sure the randomizor didn't lose any information
 	for(size_t seed=0;seed<regions;seed++){
 		rand_partition(total,regions,possible_numbers,seed);
 		
@@ -61,17 +64,17 @@ void rand_testing(){
 		}
 		
 		if (counter==100){
-			cout<<"Successfully randomized a distribution"<<endl;
+			cout<<"Successfully randomized a distribution without losing information"<<endl;
 		}
 	}
-	cout<<"Finished Testing randomization function, looks good"<<endl;
+	cout<<"Finished Testing randomization function"<<endl;
 	
 }
-
+//Tests the time_step file and makes sure the outputs are reasonable
 void time_testing(){
 	
 	cout<<"Testing the timestep functionality"<<endl;
-	
+	//Random values and empty arrays
 	int total_ants = 100;
 	int length=20;
 	rarray<int,2> number_of_ants(length,length);
@@ -82,6 +85,7 @@ void time_testing(){
 	
 	perform_one_timestep(number_of_ants,new_number_of_ants,seed);
 	
+	//Makes sure the number of ants after a time step is less than or equal to the number of ants it started with
 	int counter=0;
 	for (size_t i = 0; i<length;i++){
 		for (size_t j = 0; j<length;j++){

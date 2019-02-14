@@ -1,4 +1,4 @@
-CXX=g++
+BBBCXX=g++
 CXXFLAGS=-std=c++11 -g -O3 -march=native
 CXXFLAGS=-std=c++11 -g -O2 -march=native -ftree-vectorize -Wall
 
@@ -84,7 +84,7 @@ init_test.o: init_test.cpp init_test.h
 Boost: Boost_init_test
 	./Boost_init_test --log-level all
 
-Boost_init_test: Boost_init_test.o
+Boost_init_test: report.o initialization.o init_test.o Boost_init_test.o
 	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS} 
 
 Boost_init_test.o: Boost_init_test.cpp
