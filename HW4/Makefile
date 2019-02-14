@@ -70,9 +70,10 @@ help:
 	@echo " 'make distclean'      to remove all object files, executables and test outputs"
 
 test: testsuite
+	./testsuite
 
-testsuite: initialization.o report.o init_test.o all_test.o
-	${CXX} ${LDFLAGS} -o testsuite initialization.o report.o init_test.o all_test.o ${LDLIBS}
+testsuite: randompartition.o initialization.o report.o init_test.o all_test.o
+	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS}
 
 all_test.o: all_test.cpp
 	${CXX} ${CXXFLAGS} -c -o $@ $^
