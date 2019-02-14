@@ -11,13 +11,13 @@ using std::String;
 
 #include <boost/test/unit_test.hpp>
 
-BOOST_AUTO_TEST_CASE(variable_testing){
+BOOST_AUTO_TEST_CASE(inittest){
 	
-	normal_limit = variable_testing(100,20);
-	large_limit = variable_testing(100000,2000);
-	small_limit = variable_testing(1000,2);
-	mid_limit = variable_testing(10000,200);
-	singular = variable_testing(1,1);
+  int normal_limit = variable_testing(100,20);
+  int large_limit = variable_testing(100000,2000);
+  int small_limit = variable_testing(1000,2);
+  int mid_limit = variable_testing(10000,200);
+  int singular = variable_testing(1,1);
 	
 	BOOST_CHECK(normal_limit==100&&large_limit==100000&&small_limit==1000&&mid_limit==10000&&sinular==1);
 }
