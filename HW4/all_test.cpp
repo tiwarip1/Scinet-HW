@@ -8,16 +8,19 @@ using std::string;
 #include <random>
 #include <algorithm>
 
+#include "timestep.h"
 #include "randompartition.h"
 #include "init_test.h"
 
 void init_testing();
 void rand_testing();
+void time_testing();
 
 int main(){
 	
 	init_testing();
 	rand_testing();
+	time_testing();
 	
 }
 
@@ -63,4 +66,41 @@ void rand_testing(){
 	}
 	cout<<"Finished Testing randomization function, looks good"<<endl;
 	
+}
+
+void time_testing(){
+	
+	cout<<"Testing the timestep functionality"<<endl;
+	
+	int total_ants = 100;
+	int length=20;
+	rarray<int,2> number_of_ants(length,length);
+	rarray<int,2> new_number_of_ants(length,length);
+	size_t seed=1;
+	
+	initialize_uniform(number_of_ants, total_ants);
+	
+	perform_one_timestep(number_of_ants,new_number_of_ants,seed);
+	
+	int counter=0;
+	for (size_t i = 0; i<length;i++){
+		for (size_t j = 0; j<length;j++){
+		
+			counter+=new_number_of_ants[i][j];
+		
+		}
+	}
+	
+	if (counter==total_ants || counter<total_ants){
+		
+		cout<<"The timestep function's good"<<endl;
+		
+	}
+	else{
+		
+		cout<<"We got a big problem in the timestep function"<<endl;
+	
+	}
+
+
 }

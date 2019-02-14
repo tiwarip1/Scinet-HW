@@ -52,7 +52,7 @@ run: antsontable
 	./antsontable > run
 
 clean-new:
-	\rm -f antsontable.o initialization.o randompartition.o report.o timestep.o output.o
+	\rm -f antsontable.o initialization.o randompartition.o report.o timestep.o output.o all_test.o init_test.o
 
 clean-more:
 	\rm -f antsontable antsontable-orig run run-orig
@@ -70,9 +70,9 @@ help:
 	@echo " 'make distclean'      to remove all object files, executables and test outputs"
 
 test: testsuite
-	./testsuite
+	./testsuite;/
 
-testsuite: randompartition.o initialization.o report.o init_test.o all_test.o
+testsuite: timestep.o randompartition.o initialization.o report.o init_test.o all_test.o
 	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS}
 
 all_test.o: all_test.cpp
