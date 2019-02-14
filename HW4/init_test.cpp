@@ -7,6 +7,18 @@
 
 #include <rarray>
 
+int variable_testing(int total_ants,int length){
+	
+	rarray<int,2> number_of_ants(length,length);
+	
+	initialize_uniform(number_of_ants, total_ants);
+	
+	total_ants = report_summary(number_of_ants, 0);
+	
+	return total_ants
+	
+}
+
 void initial_test(){
 	
 	int total_ants = 100;
