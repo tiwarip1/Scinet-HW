@@ -81,8 +81,22 @@ all_test.o: all_test.cpp
 init_test.o: init_test.cpp init_test.h
 	${CXX} ${CXXFLAGS} -c -o $@ $<
 
-Boost: Boost_init_test
-	./Boost_init_test --log-level all
+Boost: Boost_init_test Boost_rand_test Boost_time_test
+	./Boost_init_test --log-level all;/
+	./Boost_rand_test --log-level all;/
+	./Boost_time_test --log-level all
+
+Boost_time_test: Boost_time_test.o timestep.o
+	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS} 
+
+Boost_time_test.o: Boost_time_test.cpp
+	${CXX} ${CXXFLAGS} -c -o $@ $<
+
+Boost_rand_test: Boost_rand_test.o randompartition.o
+	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS} 
+
+Boost_rand_test.o: Boost_rand_test.cpp
+	${CXX} ${CXXFLAGS} -c -o $@ $<
 
 Boost_init_test: report.o initialization.o init_test.o Boost_init_test.o
 	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS} 
