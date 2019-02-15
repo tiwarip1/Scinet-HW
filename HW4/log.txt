@@ -1,3 +1,8 @@
+The git repository on the scinet teach cluster is located at: /home/t/teachphy1610/phy1610student022/Scinet-HW/HW4
+. This folder contains everything for the HW assignment
+
+The commits from git are as follows from latest to earliest:
+
 commit a4b3d745d9e3128ccc6943872908c068aae7f9c5
 Author: tiwarip1 <tiwarip1@msu.edu>
 Date:   Thu Feb 14 19:07:36 2019 -0500
