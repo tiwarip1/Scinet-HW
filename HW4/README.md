@@ -1,0 +1,7 @@
+So, this project was a bit more difficult than it should have been for me. What I did initially was make test cases for each situation without using Boost and just a bunch of cout statements saying whether the results returned were as expected or not. I thought I could just copy paste them using Boost, but that isn't actually true. The syntax for Boost was the difficult part and I can't seem to get that to work, even though it seems like what I have written down is what is given in the slides from class, but whatever.
+
+If you want to run the file using Boost, type "testsuite" and that will run the necessary files, but you will run into an error trying to run it for some godforsaken reason. If you want to run the same tests and being returned cout statements, type "test" and you will see the outputs are tested and work out to be fine.
+
+The new files I made and commented are Boost_init_test.cpp, Boost_rand_test.cpp, Boost_time_test.cpp, init_test.cpp/.h and all_test.cpp. Along with that, the Makefile was changed to account for these changed.
+
+One other thing to note is that I have been using github for all the assignments to go between different machines and the supercomputer, so I have condensed down the commit to what is applicable to just HW4.

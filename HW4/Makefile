@@ -69,10 +69,10 @@ help:
 	@echo " 'make clean'          to remove all object files (triggers a full recompile on next 'make')"
 	@echo " 'make distclean'      to remove all object files, executables and test outputs"
 
-test: testsuite
-	./testsuite;/
+test: testsuite1
+	./testsuite1;/
 
-testsuite: timestep.o randompartition.o initialization.o report.o init_test.o all_test.o
+testsuite1: timestep.o randompartition.o initialization.o report.o init_test.o all_test.o
 	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS}
 
 all_test.o: all_test.cpp
@@ -81,7 +81,7 @@ all_test.o: all_test.cpp
 init_test.o: init_test.cpp init_test.h
 	${CXX} ${CXXFLAGS} -c -o $@ $<
 
-Boost: Boost_init_test Boost_rand_test Boost_time_test
+testsuite: Boost_init_test Boost_rand_test Boost_time_test
 	./Boost_init_test --log-level all;/
 	./Boost_rand_test --log-level all;/
 	./Boost_time_test --log-level all
