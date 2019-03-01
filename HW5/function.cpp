@@ -11,10 +11,12 @@ function (double t, const double y[], double f[],
 {
   (void)(t); /* avoid unused parameter warning */
   double mu = *(double *)params;
+  //Define constants
   float B = 0.02;
   float E = 0.015;
   float A = 0.03;
   float C = 0.01;
+  //Just the differential equations that were given to us
   f[0] = -B*y[0]*y[2]-E*y[0]*y[1];
   f[1] = -C*y[1]*y[2]+E*y[0]*y[1];
   f[2] = B*y[0]*y[2]+C*y[1]*y[2]-A*y[1]*y[2];

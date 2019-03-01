@@ -7,7 +7,7 @@ LDLIBS=-lgsl -lgslcblas -lnetcdf_c++4
 
 all: function.o jacobian.o main.o
 	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS};\
-	./all
+	./all>output.txt
 
 function: function.o
 	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS}
@@ -26,3 +26,6 @@ main: main.o
 
 main.o: main.cpp
 	${CXX} ${CXXFLAGS} -c -o $@ $^
+
+clean:
+	rm -f *.o all

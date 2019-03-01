@@ -11,12 +11,15 @@ jacobian (double t, const double y[], double *dfdy,
 {
   (void)(t); /* avoid unused parameter warning */
   double mu = *(double *)params;
+  //Initial parameters
   float B = 0.02;
   float E = 0.015;
   float A = 0.03;
   float C = 0.01;
+  //Matrix stuff for the jacobian
   gsl_matrix_view dfdy_mat = gsl_matrix_view_array (dfdy, 3, 3);
   gsl_matrix * m = &dfdy_mat.matrix;
+  //Defining parts of the matrix itself
   gsl_matrix_set (m, 0, 0, -B*y[2]-E*y[1]);
   gsl_matrix_set (m, 0, 1, -E*y[0]);
   gsl_matrix_set (m, 0, 2, -B*y[0]);
