@@ -1,9 +1,13 @@
 CXX=g++
+GSLBASE?=${SCINET_GSL_ROOT}/
+GSLINC=${GSLBASE}include
+GSLLIB=${GSLBASE}lib
 CXXFLAGS=-std=c++11 -g -O2 -march=native -ftree-vectorize -Wall
-LDLIBS=-lboost_unit_test_framework
+LDLIBS=-lgsl -lgslcblas -lnetcdf_c++4
 
 all: function.o jacobian.o main.o
-	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS}
+	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS};\
+	./all
 
 function: function.o
 	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS}
