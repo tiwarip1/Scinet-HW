@@ -1,0 +1,8 @@
+#ifndef POWER_SPECTRUM
+#define POWER_SPECTRUM
+
+#include <complex>
+
+std::complex<double> power_spectrum(std::complex<double>& signal);
+
+#endif

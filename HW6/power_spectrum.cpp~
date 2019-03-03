@@ -1,0 +1,18 @@
+#include <rarray>
+#include <complex>
+
+#include "power_spectrum.h"
+
+rarray<std::complex<double>,1> power_spectrum(rarray<std::complex<double>,1>& fft){
+
+  rarray<std::complex<double>,1> power=fft;
+
+  for(size_t i=0; i<fft.size();i++){
+
+    power[i] = std::pow(fft[i],2);
+
+  }
+
+  return power;
+
+}

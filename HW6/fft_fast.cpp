@@ -4,6 +4,7 @@
 
 #include "fft_fast.h"
 
+//This function comes from the slides on fast fourier transforms
 void fft_fast(const rvector<std::complex<double>>& f, rvector<std::complex<double>>& fhat, bool inverse)
 {
 
