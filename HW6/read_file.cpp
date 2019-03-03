@@ -1,0 +1,29 @@
+#include <rarray>
+#include <netcdf>
+#include <complex>
+#include <fftw3.h>
+#include <string>
+
+#include "read_file.h"
+#include "fft_fast.h"
+
+using namespace std;
+using namespace netCDF;
+
+rarray<std::complex<double>,1> read_file(string file_name){
+
+  netCDF:;NcFile file(file_name, netCDF::NcFile::read);
+  rarray<std::complex<double>,1> f(file.getDim("nt").getSize());
+  file.getVar("f").getVar(&f[0]);
+
+  rarray<std::complex<double>,1> fhat(file.getDim("nt").getSize());
+  bool inverse = false;
+
+  fft_fast(f,fhat,inverse);
+  /*
+  for(size_t i=0;i<fhat.size();i++){
+    cout<<fhat[i]<<"     "<<f[i]<<endl;
+    }*/
+
+  return fhat;
+}

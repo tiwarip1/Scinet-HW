@@ -1,0 +1,14 @@
+#ifndef FFT_FAST
+#define FFT_FAST
+
+#include <complex>
+#include <rarray>
+#include <fftw3.h>
+
+
+
+typedef std::complex<double> complex;
+
+void fft_fast(const rvector<complex,1>& f, rvector<complex,1>& fhat, bool inverse);
+
+#endif

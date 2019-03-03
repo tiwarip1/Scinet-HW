@@ -1,0 +1,24 @@
+CXX=g++
+GSLBASE?=${SCINET_GSL_ROOT}/
+GSLINC=${GSLBASE}include
+GSLLIB=${GSLBASE}lib
+CXXFLAGS=-std=c++11 -g -O2 -march=native -ftree-vectorize -Wall
+LDLIBS=-lgsl -lgslcblas -lnetcdf_c++4 -lfftw3
+
+
+all: main.o read_file.o fft_fast.o
+	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS};\
+	./all
+
+main.o: main.cpp
+	${CXX} ${CXXLAGS} -c -o $@ $^
+
+read_file.o: read_file.cpp
+	${CXX} ${CXXLAGS} -c -o $@ $^
+
+fft_fast.o: fft_fast.cpp
+	${CXX} ${CXXLAGS} -c -o $@ $^
+
+clean:
+	rm -f *.o;\
+	rm -f all
