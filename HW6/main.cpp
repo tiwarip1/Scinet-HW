@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <openblas>
+#include <../../OpenBLAS/cblas.h>
 
 #include "power_spectrum.h"
 #include "read_file.h"
@@ -16,11 +16,18 @@ int main(){
   rarray<std::complex<double>,1> fft1 = read_file(file1);
   rarray<std::complex<double>,1> fft2 = read_file(file2);
 
-  rarray<std::complex<double>,1> power1 = power_spectrum(fft1);
-  rarray<std::complex<double>,1> power2 = power_spectrum(fft2);
+  const double* power1(power_spectrum(fft1));
+  const double* power2(power_spectrum(fft2));
+  int unity = 1;
+  int dimension = fft1.size();
 
-  double correlation_f_g = cblas_ddot(power1.size(),power1,1,power2,1);
-
+  //std::cout<<dimension<<" "<<sizeof(power1)/sizeof(*power1)<<endl;
+  //double correlation_f_g[dimension];
+  
+  std::cout<<"doing correlation"<<std::endl;
+  double correlation_f_g = cblas_ddot(dimension,power1,unity,power2,unity);
+  std::cout<<"Done correlation"<<std::endl;
+  
   cout<<correlation_f_g<<endl;
 
   cout<<"all good"<<endl;

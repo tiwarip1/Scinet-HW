@@ -2,10 +2,9 @@ CXX=g++
 GSLBASE?=${SCINET_GSL_ROOT}/
 GSLINC=${GSLBASE}include
 GSLLIB=${GSLBASE}lib
-BLAS_INC=${HOME}/OpenBLAS/include/
-BLAS_LIB=${HOME}/OpenBLAS/lib/
 CXXFLAGS=-std=c++11 -g -O2 -march=native -ftree-vectorize -Wall
-LDLIBS=-lgsl -lgslcblas -lnetcdf_c++4 -lfftw3
+LDLIBS=-lgsl -lgslcblas -lblas -lnetcdf_c++4 -lfftw3
+
 
 all: main.o read_file.o fft_fast.o power_spectrum.o
 	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS};\
