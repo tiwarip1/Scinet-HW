@@ -1,4 +1,4 @@
-CXX=g++
+BBCXX=g++
 GSLBASE?=${SCINET_GSL_ROOT}/
 GSLINC=${GSLBASE}include
 GSLLIB=${GSLBASE}lib
@@ -9,7 +9,7 @@ LDLIBS=-lgsl -lgslcblas -lnetcdf_c++4 -lfftw3
 
 all: main.o read_file.o fft_fast.o power_spectrum.o
 	${CXX} ${LDFLAGS} -o $@ $^ ${LDLIBS};\
-	./all
+	./all>output.txt
 
 main.o: main.cpp
 	${CXX} ${CXXLAGS} -c -o $@ $^
@@ -26,4 +26,4 @@ power_spectrum.o: power_spectrum.cpp
 
 clean:
 	rm -f *.o;\
-	rm -f all
+	rm -f all;\

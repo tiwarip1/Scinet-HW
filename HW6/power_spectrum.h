@@ -4,6 +4,6 @@
 #include <complex>
 #include <rarray>
 
-double* power_spectrum(rarray<std::complex<double>,1>& fft);
+rarray<double,1> power_spectrum(rarray<std::complex<double>,1>& fft);
 
 #endif

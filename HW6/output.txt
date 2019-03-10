@@ -1,0 +1,6 @@
+Here are the top 5 correlations between files
+Correlation of 0.999954 between 11 and 21
+Correlation of 0.999736 between 6 and 26
+Correlation of 0.999322 between 3 and 13
+Correlation of 0.942132 between 1 and 15
+Correlation of 0.872998 between 1 and 2
