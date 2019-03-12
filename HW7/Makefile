@@ -17,7 +17,8 @@ LD=${CXX}
 all: diffring walkring
 
 diffring: diffring.o diffring_timestep.o diffring_output.o parameters.o ticktock.o sparkline.o
-	${LD} ${LDFLAGS} -o diffring diffring.o diffring_timestep.o diffring_output.o parameters.o ticktock.o sparkline.o ${LDLIBS}
+	${LD} ${LDFLAGS} -o diffring diffring.o diffring_timestep.o diffring_output.o parameters.o ticktock.o sparkline.o ${LDLIBS};\
+	./diffring
 
 walkring: walkring.o ticktock.o sparkline.o walkring_output.o walkring_timestep.o parameters.o
 	${LD} ${LDFLAGS} -o walkring walkring.o ticktock.o sparkline.o walkring_output.o walkring_timestep.o parameters.o ${LDLIBS}
