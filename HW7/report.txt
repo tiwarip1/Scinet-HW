@@ -1,0 +1,5 @@
+This is the report that explains what my methodology is.
+
+For the diffring section, we had to take parameters from params.ini, which I used boost for. I realized afterwards that we were given a function that does exactly this, but I just ignored it. I created two arrays, one for the double derivative with respect to x denoted by dx2 and another that represents the single derivative with time, denoted by time_deriv. I then used the equation given in the slides to find what dx2 would be, using that we found time_deriv. With that done, we can just multiple each item in the density array by the time_deriv*dt to find what the density should be given the diffusion equation works in this case. This was done multiple times till we reached equilibrium.
+
+For the walkrin section, we started in a similar manner, but there are a number of agents that can move across the array. With the probability of moving left or right already given to us, we just have to use a random number generator to determine whether the agent will move right or left. The operation was then done and the number of agents in the original section was reduced by the correct amount.

@@ -11,6 +11,8 @@
 #include "ticktock.h"
 #include "sparkline.h"
 
+using namespace std;
+
 static TickTock tt;
 
 void walkring_output_init(std::ofstream& file, std::string datafilename)

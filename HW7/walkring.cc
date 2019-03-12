@@ -14,6 +14,9 @@
 #include "walkring_timestep.h"
 #include "parameters.h"
 
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ini_parser.hpp>
+
 using namespace std;
 
 // the main function drives the simulation
@@ -40,30 +43,32 @@ int main(int argc, char *argv[])
   const int outputEvery = int(time_between_output/dt + 0.5); // how many steps between output
   const double p = D*dt/pow(dx,2);       // probability to hop left or right
   const int outputcols = 48;             // number of columns for sparkline output
+
+  boost::property_tree::ptree pt;
+  boost::property_tree::ini_parser::read_ini("params.ini", pt);
+  int walkers = pt.get<int>("Params.walkers");
     
   // Allocate walker data
   rarray<int,1> w(Z);
   // Setup initial conditions for w
+  w.fill(0);
   int halfpoint = static_cast<int>(w.size()/2);
-  cout<<halfpoint<<endl;
-  w[halfpoint]=Z;
+  w[halfpoint]=walkers;
    // Setup initial time
   double time = 0.0;
-  cout<<"Made the walkpositions"<<endl;
   // Open a file for data output
   ofstream file;
-  cout<<"defined file"<<endl;
   walkring_output_init(file, datafile);  
   // Initial output to screen
-  cout<<"initialized output"<<endl;
   walkring_output(file, 0, time, N, w, outputcols);
-  cout<<"Did outputs"<<endl;
   // Time evolution
+
+  w[halfpoint]=walkers;
+
   for (int step = 1; step <= numSteps; step++) {
 
     // Compute next time point
     walkring_timestep(w, N, p);
-    cout<<"Not something in timestep"<<endl;
     // Update time
     time += dt;
 
