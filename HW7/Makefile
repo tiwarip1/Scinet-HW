@@ -21,7 +21,8 @@ diffring: diffring.o diffring_timestep.o diffring_output.o parameters.o ticktock
 	./diffring
 
 walkring: walkring.o ticktock.o sparkline.o walkring_output.o walkring_timestep.o parameters.o
-	${LD} ${LDFLAGS} -o walkring walkring.o ticktock.o sparkline.o walkring_output.o walkring_timestep.o parameters.o ${LDLIBS}
+	${LD} ${LDFLAGS} -o walkring walkring.o ticktock.o sparkline.o walkring_output.o walkring_timestep.o parameters.o ${LDLIBS};\
+	./walkring
 
 diffring.o: diffring.cc diffring_timestep.h
 	${CXX} ${CXXFLAGS} -c -o diffring.o diffring.cc

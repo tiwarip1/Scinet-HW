@@ -6,6 +6,12 @@
 
 #include "walkring_timestep.h"
 #include <random>
+#include <iostream>
+
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ini_parser.hpp>
+
+using namespace std;
 
 // Perform a single time step for the random walkers
 //
@@ -32,11 +38,58 @@
 //
 void walkring_timestep(rarray<int,1>& walkerpositions, int N, double prob)
 {
-    ////////////////////////////////////////////////
-    //                                            //
-    // IMPLEMENT THIS AS PART OF YOUR ASSIGNMENT! //
-    //                                            //
-    ////////////////////////////////////////////////
+  cout<<"Started the timestep"<<endl;
+  boost::property_tree::ptree pt;
+  boost::property_tree::ini_parser::read_ini("params.ini", pt);
+  double D = pt.get<double>("Params.D");
+  double walkers = pt.get<double>("Params.walkers");
+  double dx = pt.get<double>("Params.dx");
+  double T = pt.get<double>("Params.T");
+  cout<<"Not in defintiions"<<endl;
+  for(size_t i=0; i<walkerpositions.size();i++){
+
+    if(walkerpositions[i]==0){
+      continue;
+    }
+
+    size_t i_minus_1;
+    size_t i_plus_1;
+    size_t max_size=walkerpositions.size();
+    cout<<"Got to the plus,minus definitions"<<endl;
+    if(i==0){
+      i_minus_1=max_size;
+      i_plus_1=i+1;
+    }
+    else if(i+1==max_size){
+      i_minus_1=i-1;
+      i_plus_1=0;
+    }
+    else{
+      i_minus_1=i-1;
+      i_plus_1=i+1;
+    }
+
+    int move_left = 0;
+    int move_right = 0;
+    cout<<"Got to the second loop"<<endl;
+    for(int j=0; j<walkerpositions[i];j++){
+      double r = ((double) rand() / (RAND_MAX));
+      
+      if(r<prob){
+	move_left++;
+      }
+      else if(1-r<prob){
+	move_right++;
+      }
+
+    }
+    cout<<"Moved "<<move_left<<" to the left"<<endl;
+    walkerpositions[i_minus_1]+=move_left;
+    walkerpositions[i_plus_1]+=move_right;
+    walkerpositions[i]-=(move_left+move_right);
+
+  }
+ 
 }
 
 

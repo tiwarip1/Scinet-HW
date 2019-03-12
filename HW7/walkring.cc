@@ -6,12 +6,15 @@
 // Compile with make using provided Makefile 
 //
 
+#include <iostream>
 #include <fstream>
 #include <rarray>
 #include <cmath>
 #include "walkring_output.h"
 #include "walkring_timestep.h"
 #include "parameters.h"
+
+using namespace std;
 
 // the main function drives the simulation
 int main(int argc, char *argv[]) 
@@ -41,22 +44,26 @@ int main(int argc, char *argv[])
   // Allocate walker data
   rarray<int,1> w(Z);
   // Setup initial conditions for w
-  w.fill(N/2);
+  int halfpoint = static_cast<int>(w.size()/2);
+  cout<<halfpoint<<endl;
+  w[halfpoint]=Z;
    // Setup initial time
   double time = 0.0;
-
+  cout<<"Made the walkpositions"<<endl;
   // Open a file for data output
-  std::ofstream file;
+  ofstream file;
+  cout<<"defined file"<<endl;
   walkring_output_init(file, datafile);  
   // Initial output to screen
+  cout<<"initialized output"<<endl;
   walkring_output(file, 0, time, N, w, outputcols);
-
+  cout<<"Did outputs"<<endl;
   // Time evolution
   for (int step = 1; step <= numSteps; step++) {
 
     // Compute next time point
     walkring_timestep(w, N, p);
-
+    cout<<"Not something in timestep"<<endl;
     // Update time
     time += dt;
 
