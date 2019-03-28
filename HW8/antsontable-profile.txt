@@ -1,0 +1,285 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ns/call  ns/call  name    
+ 52.85      2.05     2.05 74332104    27.52    33.64  int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&)
+ 18.22      2.75     0.71 18583026    37.94    37.94  initialize_uniform(ra::rarray<int, 2>&, int)
+ 11.76      3.21     0.46 74332104     6.12     6.12  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()()
+ 11.63      3.66     0.45                             perform_one_timestep(ra::rarray<int, 2>&, ra::rarray<int, 2>&, unsigned long)
+  5.56      3.87     0.22  9291513    23.14   368.13  rand_partition(int, int, ra::rarray<int, 1>&, unsigned long)
+  0.00      3.87     0.00       95     0.00     0.00  netCDF::NcGroupAtt::~NcGroupAtt()
+  0.00      3.87     0.00       28     0.00     0.00  boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::~holder()
+  0.00      3.87     0.00       21     0.00     0.00  boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::clone() const
+  0.00      3.87     0.00       14     0.00     0.00  boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path>::~error_info_injector()
+  0.00      3.87     0.00        7     0.00     0.00  boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::get_child(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+  0.00      3.87     0.00        7     0.00     0.00  boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::reduce()
+  0.00      3.87     0.00        7     0.00     0.00  boost::property_tree::ptree_bad_path::ptree_bad_path<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+  0.00      3.87     0.00        7     0.00     0.00  boost::property_tree::ptree_bad_path::~ptree_bad_path()
+  0.00      3.87     0.00        7     0.00     0.00  void boost::throw_exception<boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> >(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&)
+  0.00      3.87     0.00        7     0.00     0.00  boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path>::error_info_injector(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&)
+  0.00      3.87     0.00        7     0.00     0.00  boost::exception_detail::copy_boost_exception(boost::exception*, boost::exception const*)
+  0.00      3.87     0.00        7     0.00     0.00  boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::walk_path(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&) const
+  0.00      3.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z15read_parametersRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiS7_S7_RmRS4_S7_S7_iPPc
+  0.00      3.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z18netcdf_output_openRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKi
+  0.00      3.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z21screen_report_summaryRKN2ra6rarrayIiLi2EEEi
+  0.00      3.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z9printhelpRSo
+  0.00      3.87     0.00        1     0.00     0.00  read_parameters(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int&, int&, int&, unsigned long&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, int&, int&, int, char**)
+  0.00      3.87     0.00        1     0.00     0.00  boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~basic_ptree()
+  0.00      3.87     0.00        1     0.00     0.00  Inifile::read(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, char**)
+  0.00      3.87     0.00        1     0.00     0.00  std::_Sp_counted_ptr_inplace<netCDF::NcFile, std::allocator<netCDF::NcFile>, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+  0.00      3.87     0.00        1     0.00     0.00  std::_Sp_counted_ptr_inplace<netCDF::NcFile, std::allocator<netCDF::NcFile>, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2014 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.26% of 3.87 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.45    3.42                 perform_one_timestep(ra::rarray<int, 2>&, ra::rarray<int, 2>&, unsigned long) [1]
+                0.22    3.21 9291513/9291513     rand_partition(int, int, ra::rarray<int, 1>&, unsigned long) [2]
+-----------------------------------------------
+                0.22    3.21 9291513/9291513     perform_one_timestep(ra::rarray<int, 2>&, ra::rarray<int, 2>&, unsigned long) [1]
+[2]     88.4    0.22    3.21 9291513         rand_partition(int, int, ra::rarray<int, 1>&, unsigned long) [2]
+                2.05    0.46 74332104/74332104     int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&) [3]
+                0.71    0.00 18583026/18583026     initialize_uniform(ra::rarray<int, 2>&, int) [4]
+-----------------------------------------------
+                2.05    0.46 74332104/74332104     rand_partition(int, int, ra::rarray<int, 1>&, unsigned long) [2]
+[3]     64.6    2.05    0.46 74332104         int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&) [3]
+                0.46    0.00 74332104/74332104     std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()() [5]
+-----------------------------------------------
+                0.71    0.00 18583026/18583026     rand_partition(int, int, ra::rarray<int, 1>&, unsigned long) [2]
+[4]     18.2    0.71    0.00 18583026         initialize_uniform(ra::rarray<int, 2>&, int) [4]
+-----------------------------------------------
+                0.46    0.00 74332104/74332104     int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&) [3]
+[5]     11.8    0.46    0.00 74332104         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()() [5]
+-----------------------------------------------
+                0.00    0.00       1/95          parameters(int&, int&, int&, unsigned long&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, int&, int&, int, char**, void (*)(std::ostream&)) [34]
+                0.00    0.00      14/95          boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::reduce() [18]
+                0.00    0.00      17/95          read_parameters(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int&, int&, int&, unsigned long&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, int&, int&, int, char**) [29]
+                0.00    0.00      21/95          boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::clone() const [15]
+                0.00    0.00      21/95          boost::property_tree::ptree_bad_path::ptree_bad_path<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [19]
+                0.00    0.00      21/95          boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::get_child(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [17]
+[13]     0.0    0.00    0.00      95         netCDF::NcGroupAtt::~NcGroupAtt() [13]
+-----------------------------------------------
+                0.00    0.00       7/28          boost::property_tree::ptree_bad_path::~ptree_bad_path() [20]
+                0.00    0.00       7/28          boost::exception_detail::clone_impl<boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> >::~clone_impl() [70]
+                0.00    0.00      14/28          boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path>::~error_info_injector() [16]
+[14]     0.0    0.00    0.00      28         boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::~holder() [14]
+-----------------------------------------------
+                0.00    0.00       7/21          boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path>::error_info_injector(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&) [22]
+                0.00    0.00       7/21          void boost::throw_exception<boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> >(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&) [21]
+                0.00    0.00       7/21          boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::get_child(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [17]
+[15]     0.0    0.00    0.00      21         boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::clone() const [15]
+                0.00    0.00      21/95          netCDF::NcGroupAtt::~NcGroupAtt() [13]
+-----------------------------------------------
+                0.00    0.00       7/14          void boost::throw_exception<boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> >(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&) [21]
+                0.00    0.00       7/14          boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::get_child(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [17]
+[16]     0.0    0.00    0.00      14         boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path>::~error_info_injector() [16]
+                0.00    0.00      14/28          boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::~holder() [14]
+-----------------------------------------------
+                0.00    0.00       7/7           read_parameters(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int&, int&, int&, unsigned long&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, int&, int&, int, char**) [29]
+[17]     0.0    0.00    0.00       7         boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::get_child(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [17]
+                0.00    0.00      21/95          netCDF::NcGroupAtt::~NcGroupAtt() [13]
+                0.00    0.00       7/7           boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::walk_path(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&) const [24]
+                0.00    0.00       7/7           boost::property_tree::ptree_bad_path::ptree_bad_path<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [19]
+                0.00    0.00       7/21          boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::clone() const [15]
+                0.00    0.00       7/7           void boost::throw_exception<boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> >(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&) [21]
+                0.00    0.00       7/14          boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path>::~error_info_injector() [16]
+                0.00    0.00       7/7           boost::property_tree::ptree_bad_path::~ptree_bad_path() [20]
+-----------------------------------------------
+                0.00    0.00       7/7           boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::walk_path(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&) const [24]
+[18]     0.0    0.00    0.00       7         boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::reduce() [18]
+                0.00    0.00      14/95          netCDF::NcGroupAtt::~NcGroupAtt() [13]
+-----------------------------------------------
+                0.00    0.00       7/7           boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::get_child(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [17]
+[19]     0.0    0.00    0.00       7         boost::property_tree::ptree_bad_path::ptree_bad_path<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [19]
+                0.00    0.00      21/95          netCDF::NcGroupAtt::~NcGroupAtt() [13]
+-----------------------------------------------
+                0.00    0.00       7/7           boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::get_child(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [17]
+[20]     0.0    0.00    0.00       7         boost::property_tree::ptree_bad_path::~ptree_bad_path() [20]
+                0.00    0.00       7/28          boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::~holder() [14]
+-----------------------------------------------
+                0.00    0.00       7/7           boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::get_child(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [17]
+[21]     0.0    0.00    0.00       7         void boost::throw_exception<boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> >(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&) [21]
+                0.00    0.00       7/7           boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path>::error_info_injector(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&) [22]
+                0.00    0.00       7/21          boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::clone() const [15]
+                0.00    0.00       7/14          boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path>::~error_info_injector() [16]
+                0.00    0.00       7/7           boost::exception_detail::copy_boost_exception(boost::exception*, boost::exception const*) [23]
+-----------------------------------------------
+                0.00    0.00       7/7           void boost::throw_exception<boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> >(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&) [21]
+[22]     0.0    0.00    0.00       7         boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path>::error_info_injector(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&) [22]
+                0.00    0.00       7/21          boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::clone() const [15]
+-----------------------------------------------
+                0.00    0.00       7/7           void boost::throw_exception<boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> >(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&) [21]
+[23]     0.0    0.00    0.00       7         boost::exception_detail::copy_boost_exception(boost::exception*, boost::exception const*) [23]
+-----------------------------------------------
+                0.00    0.00       7/7           boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::get_child(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [17]
+[24]     0.0    0.00    0.00       7         boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::walk_path(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&) const [24]
+                0.00    0.00       7/7           boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::reduce() [18]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [146]
+[25]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z15read_parametersRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiS7_S7_RmRS4_S7_S7_iPPc [25]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [146]
+[26]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z18netcdf_output_openRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKi [26]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [146]
+[27]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z21screen_report_summaryRKN2ra6rarrayIiLi2EEEi [27]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [146]
+[28]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z9printhelpRSo [28]
+-----------------------------------------------
+                0.00    0.00       1/1           parameters(int&, int&, int&, unsigned long&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, int&, int&, int, char**, void (*)(std::ostream&)) [34]
+[29]     0.0    0.00    0.00       1         read_parameters(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int&, int&, int&, unsigned long&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, int&, int&, int, char**) [29]
+                0.00    0.00      17/95          netCDF::NcGroupAtt::~NcGroupAtt() [13]
+                0.00    0.00       7/7           boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::get_child(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [17]
+                0.00    0.00       1/1           Inifile::read(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, char**) [31]
+                0.00    0.00       1/1           boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~basic_ptree() [30]
+-----------------------------------------------
+                0.00    0.00       1/1           read_parameters(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int&, int&, int&, unsigned long&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, int&, int&, int, char**) [29]
+[30]     0.0    0.00    0.00       1         boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~basic_ptree() [30]
+-----------------------------------------------
+                0.00    0.00       1/1           read_parameters(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int&, int&, int&, unsigned long&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, int&, int&, int, char**) [29]
+[31]     0.0    0.00    0.00       1         Inifile::read(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, char**) [31]
+-----------------------------------------------
+                0.00    0.00       1/1           netcdf_output_close(NetCDFOutputHandle&) [36]
+[32]     0.0    0.00    0.00       1         std::_Sp_counted_ptr_inplace<netCDF::NcFile, std::allocator<netCDF::NcFile>, (__gnu_cxx::_Lock_policy)2>::_M_destroy() [32]
+-----------------------------------------------
+                0.00    0.00       1/1           netcdf_output_close(NetCDFOutputHandle&) [36]
+[33]     0.0    0.00    0.00       1         std::_Sp_counted_ptr_inplace<netCDF::NcFile, std::allocator<netCDF::NcFile>, (__gnu_cxx::_Lock_policy)2>::_M_dispose() [33]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2014 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [25] _GLOBAL__sub_I__Z15read_parametersRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiS7_S7_RmRS4_S7_S7_iPPc (parameters.cc) [30] boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~basic_ptree() [13] netCDF::NcGroupAtt::~NcGroupAtt()
+  [26] _GLOBAL__sub_I__Z18netcdf_output_openRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKi (netcdfoutput.cc) [18] boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::reduce() [31] Inifile::read(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, char**)
+  [27] _GLOBAL__sub_I__Z21screen_report_summaryRKN2ra6rarrayIiLi2EEEi (screenoutput.cc) [19] boost::property_tree::ptree_bad_path::ptree_bad_path<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [24] boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::walk_path(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&) const
+  [28] _GLOBAL__sub_I__Z9printhelpRSo (antsontable.cc) [20] boost::property_tree::ptree_bad_path::~ptree_bad_path() [15] boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::clone() const
+   [2] rand_partition(int, int, ra::rarray<int, 1>&, unsigned long) [21] void boost::throw_exception<boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> >(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&) [32] std::_Sp_counted_ptr_inplace<netCDF::NcFile, std::allocator<netCDF::NcFile>, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+  [29] read_parameters(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int&, int&, int&, unsigned long&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, int&, int&, int, char**) [22] boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path>::error_info_injector(boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path> const&) [33] std::_Sp_counted_ptr_inplace<netCDF::NcFile, std::allocator<netCDF::NcFile>, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+   [4] initialize_uniform(ra::rarray<int, 2>&, int) [16] boost::exception_detail::error_info_injector<boost::property_tree::ptree_bad_path>::~error_info_injector() [5] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()()
+   [1] perform_one_timestep(ra::rarray<int, 2>&, ra::rarray<int, 2>&, unsigned long) [23] boost::exception_detail::copy_boost_exception(boost::exception*, boost::exception const*) [3] int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&)
+  [17] boost::property_tree::basic_ptree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::get_child(boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) [14] boost::any::holder<boost::property_tree::string_path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::property_tree::id_translator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::~holder()
