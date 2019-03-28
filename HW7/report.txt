@@ -1,5 +1,101 @@
+the directory can be found in /home/t/teachphy1610/phy1610student022/Scinet-HW/HW7
+
 This is the report that explains what my methodology is.
 
 For the diffring section, we had to take parameters from params.ini, which I used boost for. I realized afterwards that we were given a function that does exactly this, but I just ignored it. I created two arrays, one for the double derivative with respect to x denoted by dx2 and another that represents the single derivative with time, denoted by time_deriv. I then used the equation given in the slides to find what dx2 would be, using that we found time_deriv. With that done, we can just multiple each item in the density array by the time_deriv*dt to find what the density should be given the diffusion equation works in this case. This was done multiple times till we reached equilibrium.
 
 For the walkrin section, we started in a similar manner, but there are a number of agents that can move across the array. With the probability of moving left or right already given to us, we just have to use a random number generator to determine whether the agent will move right or left. The operation was then done and the number of agents in the original section was reduced by the correct amount.
+
+
+commit 0357812dbd8ce4b318724967e51dbefe8447d425
+Author: Pranjal Tiwari <herpitehderpo@gmail.com>
+Date:   Tue Mar 12 17:09:25 2019 -0400
+
+    finished project
+
+ HW7/#walkring_timestep..cc# |   0
+ HW7/diffring.o              | Bin 161624 -> 0 bytes
+ HW7/diffring_output.o       | Bin 257344 -> 0 bytes
+ HW7/diffring_timestep.cc    |  14 +-
+ HW7/diffring_timestep.o     | Bin 2455904 -> 0 bytes
+ HW7/output.dat              | 303 ++++++++++++++++++++++++++++++++++++++++++++
+ HW7/parameters.o            | Bin 2757416 -> 0 bytes
+ HW7/params.ini              |   2 +-
+ HW7/report.txt              |   5 +
+ HW7/report.txt~             |   0
+ HW7/sparkline.o             | Bin 522952 -> 0 bytes
+ HW7/ticktock.o              | Bin 66288 -> 0 bytes
+ HW7/walkring                | Bin 2572736 -> 3106576 bytes
+ HW7/walkring.cc             |  19 ++-
+ HW7/walkring.o              | Bin 157016 -> 0 bytes
+ HW7/walkring_output.cc      |   2 +
+ HW7/walkring_output.o       | Bin 257128 -> 0 bytes
+ HW7/walkring_timestep.cc    |  27 ++--
+ HW7/walkring_timestep.o     | Bin 2457640 -> 0 bytes
+ 19 files changed, 341 insertions(+), 31 deletions(-)
+
+commit 255c02bbfc25226c84b6322b00aa73a36b9e2a7c
+Author: Pranjal Tiwari <herpitehderpo@gmail.com>
+Date:   Tue Mar 12 14:08:19 2019 -0400
+
+    got to the walkring, but there are some issues with seg faults in the output
+
+ HW7/Makefile             |   3 +-
+ HW7/diffring             | Bin 0 -> 2573736 bytes
+ HW7/output.dat           | 296 -----------------------------------------------
+ HW7/walkring             | Bin 1963064 -> 2572736 bytes
+ HW7/walkring.cc          |  17 ++-
+ HW7/walkring.o           | Bin 140168 -> 157016 bytes
+ HW7/walkring_timestep.cc |  63 +++++++++-
+ HW7/walkring_timestep.o  | Bin 33696 -> 2457640 bytes
+ 8 files changed, 72 insertions(+), 307 deletions(-)
+
+commit 2d6ce7b531df6aa9751a423a14e3fb1e6987b1f8
+Author: Pranjal Tiwari <herpitehderpo@gmail.com>
+Date:   Tue Mar 12 10:46:00 2019 -0400
+
+    I think the diffring section is done
+
+ HW7/Makefile             |   3 +-
+ HW7/diffring.o           | Bin 0 -> 161624 bytes
+ HW7/diffring_output.o    | Bin 0 -> 257344 bytes
+ HW7/diffring_timestep.cc |  62 ++++++++--
+ HW7/diffring_timestep.o  | Bin 0 -> 2455904 bytes
+ HW7/output.dat           | 296 +++++++++++++++++++++++++++++++++++++++++++++++
+ HW7/parameters.o         | Bin 0 -> 2757416 bytes
+ HW7/params.ini           |   1 +
+ HW7/sparkline.o          | Bin 0 -> 522952 bytes
+ HW7/ticktock.o           | Bin 0 -> 66288 bytes
+ HW7/walkring             | Bin 0 -> 1963064 bytes
+ HW7/walkring.o           | Bin 0 -> 140168 bytes
+ HW7/walkring_output.o    | Bin 0 -> 257128 bytes
+ HW7/walkring_timestep.o  | Bin 0 -> 33696 bytes
+ 14 files changed, 351 insertions(+), 11 deletions(-)
+
+commit 31f90dba2443cac3ae2ff92a893d4dfd4f8c846e
+Author: Pranjal Tiwari <herpitehderpo@gmail.com>
+Date:   Sun Mar 10 15:27:01 2019 -0400
+
+    Initial commit
+
+ HW7/Makefile             |  65 +++++++++++++++++++++
+ HW7/assignment7.pdf      | Bin 0 -> 241905 bytes
+ HW7/diffring.cc          |  76 ++++++++++++++++++++++++
+ HW7/diffring_output.cc   |  59 +++++++++++++++++++
+ HW7/diffring_output.h    |  35 +++++++++++
+ HW7/diffring_timestep.cc |  29 +++++++++
+ HW7/diffring_timestep.h  |  25 ++++++++
+ HW7/parameters.cc        |  71 ++++++++++++++++++++++
+ HW7/parameters.h         |  25 ++++++++
+ HW7/params.ini           |   8 +++
+ HW7/sparkline.cc         | 149 +++++++++++++++++++++++++++++++++++++++++++++++
+ HW7/sparkline.h          | 102 ++++++++++++++++++++++++++++++++
+ HW7/ticktock.cc          |  54 +++++++++++++++++
+ HW7/ticktock.h           |  20 +++++++
+ HW7/walkring.cc          |  74 +++++++++++++++++++++++
+ HW7/walkring_output.cc   |  61 +++++++++++++++++++
+ HW7/walkring_output.h    |  37 ++++++++++++
+ HW7/walkring_timestep.cc |  42 +++++++++++++
+ HW7/walkring_timestep.h  |  31 ++++++++++
+ 19 files changed, 963 insertions(+)
+
