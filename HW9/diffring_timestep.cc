@@ -28,6 +28,8 @@ void diffring_fill_timestep_matrix(rarray<double,2>& F, double D, double dt, dou
   F.fill(0.0);
   double a = D*dt/pow(dx,2);  // off-diagonal value
   double d = 1 - 2*a;         // diagonal value
+#pragma omp parallel default(none) shared(F)
+#pragma omp for
   for (int r=1; r<nrows; r++) {
       F[r-1][r] = a;      
       F[r][r]   = d;
